@@ -1,0 +1,45 @@
+[Producer] #1 kirim app_id=2 data=jaringan
+[Producer] #2 kirim app_id=2 data=halo
+[Producer] #3 kirim app_id=1 data=1423826
+[Producer] #4 kirim app_id=1 data=421632
+[Producer] #5 kirim app_id=2 data=jaringan
+[Producer] #6 kirim app_id=1 data=1209420
+[Producer] #7 kirim app_id=2 data=jaringan
+[Producer] #8 kirim app_id=1 data=1190281
+[Producer] #9 kirim app_id=1 data=1485842
+[Producer] #10 kirim app_id=1 data=768166
+[Producer] #11 kirim app_id=2 data=broker
+[Producer] #12 kirim app_id=2 data=broker
+[Producer] #1 app_id=2 data=jaringan -> JARINGAN oleh w1@SEVIMA-249 (selesai detik ke-1.3)
+[Producer] #2 app_id=2 data=halo -> HALO oleh w2@SEVIMA-249 (selesai detik ke-1.4)
+[Producer] #3 app_id=1 data=1423826 -> 108757 oleh w3@SEVIMA-249 (selesai detik ke-11.8)
+[Producer] #4 app_id=1 data=421632 -> 35511 oleh w1@SEVIMA-249 (selesai detik ke-3.7)
+[Producer] #5 app_id=2 data=jaringan -> JARINGAN oleh w2@SEVIMA-249 (selesai detik ke-1.8)
+[Producer] #6 app_id=1 data=1209420 -> 93573 oleh w3@SEVIMA-249 (selesai detik ke-19.3)
+[Producer] #7 app_id=2 data=jaringan -> JARINGAN oleh w1@SEVIMA-249 (selesai detik ke-3.7)
+[Producer] #8 app_id=1 data=1190281 -> 92243 oleh w2@SEVIMA-249 (selesai detik ke-10.3)
+[Producer] #9 app_id=1 data=1485842 -> 113159 oleh w3@SEVIMA-249 (selesai detik ke-29.7)
+[Producer] #10 app_id=1 data=768166 -> 61594 oleh w1@SEVIMA-249 (selesai detik ke-8.3)
+[Producer] #11 app_id=2 data=broker -> BROKER oleh w2@SEVIMA-249 (selesai detik ke-10.3)
+[Producer] #12 app_id=2 data=broker -> BROKER oleh w3@SEVIMA-249 (selesai detik ke-29.7)
+[Producer] selesai 12 request dalam 29.8 detik
+
+
+[2026-11-09 23:22:13,775: WARNING/MainProcess] [w1@SEVIMA-249] SHORT 'jaringan' -> 'JARINGAN'
+[2026-11-09 23:22:16,148: WARNING/MainProcess] [w1@SEVIMA-249] LONG n=421632 -> 35511
+[2026-11-09 23:22:16,150: WARNING/MainProcess] [w1@SEVIMA-249] SHORT 'jaringan' -> 'JARINGAN'
+[2026-11-09 23:22:20,802: WARNING/MainProcess] [w1@SEVIMA-249] LONG n=768166 -> 61594
+
+
+[2026-11-09 23:22:13,884: WARNING/MainProcess] [w2@SEVIMA-249] SHORT 'halo' -> 'HALO'
+[2026-11-09 23:22:14,262: WARNING/MainProcess] [w2@SEVIMA-249] SHORT 'jaringan' -> 'JARINGAN'
+[2026-11-09 23:22:22,792: WARNING/MainProcess] [w2@SEVIMA-249] LONG n=1190281 -> 92243
+[2026-11-09 23:22:22,794: WARNING/MainProcess] [w2@SEVIMA-249] SHORT 'broker' -> 'BROKER'
+
+
+[2026-11-09 23:22:24,277: WARNING/MainProcess] [w3@SEVIMA-249] LONG n=1423826 -> 108757
+[2026-11-09 23:22:31,714: WARNING/MainProcess] [w3@SEVIMA-249] LONG n=1209420 -> 93573
+[2026-11-09 23:22:31,715: WARNING/MainProcess] Substantial drift from w2@SEVIMA-249 may mean clocks are out of sync.  Current drift is 17 seconds.  [orig: 2026-11-09 23:22:31.715875 recv: 2026-11-09 23:22:14.303523]
+[2026-11-09 23:22:42,184: WARNING/MainProcess] [w3@SEVIMA-249] LONG n=1485842 -> 113159
+[2026-11-09 23:22:42,186: WARNING/MainProcess] [w3@SEVIMA-249] SHORT 'broker' -> 'BROKER'
+[2026-11-09 23:22:42,187: WARNING/MainProcess] Substantial drift from w1@SEVIMA-249 may mean clocks are out of sync.  Current drift is 26 seconds.  [orig: 2026-11-09 23:22:42.187530 recv: 2026-11-09 23:22:16.251800]

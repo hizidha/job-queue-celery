@@ -29,6 +29,7 @@ MANIFEST
 # Exclude virtual environment directories
 /message-handling-sc-example/myenv
 /message-handling-sc-example/_pycache_
+/myenv2
 
 # PyInstaller
 #   Usually these files are written by a python script from a template

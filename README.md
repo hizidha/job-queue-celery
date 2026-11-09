@@ -21,9 +21,10 @@ Asynchronous job queue processing implementation using **Celery** and **Flower**
 
 ### A. Setup Broker RabbitMQ (CloudAMQP)
 1. Kunjungi [CloudAMQP Console](https://customer.cloudamqp.com/login) dan lakukan *Sign Up* / *Sign In*.
-2. Buka menu [Instance List](https://customer.cloudamqp.com/instance) lalu klik tombol **Create New Instance**.
-3. Isi **Name** dan **Tag** sesuai kebutuhan.
-4. Pilih **Plan**: `Little Lemur (Free)`.
-5. Klik **Select Region**, pilih provider **Amazon Web Services (AWS)** dan region **AP-NorthEast-2 (Seoul)**.
-6. Klik **Review**, pastikan data sesuai, lalu klik **Create Instance**.
-7. Buka detail instance yang telah dibuat, lalu catat **URL** pada bagian **AMQP details**.
+2. Klik name team, kemudian pilih yes untuk pertanyaan 1 dan klik no di pertanyaan 2
+3. Setelah berhasil sign in, kita masuk menu [Instance List](https://customer.cloudamqp.com/instance) lalu klik tombol **Create New Instance**.
+4. Mengisi **Name** dan **Tag** sesuai kebutuhan.
+5. Memilih list **Plan**: RabbitMQ - `Little Lemur (Free)`.
+6. Klik **Select Region**, pilih provider **Amazon Web Services (AWS)** dan region **AP-NorthEast-2 (Seoul)**.
+7. Klik **Review**, pastikan data sesuai, lalu klik **Create Instance**.
+8. Buka detail instance yang telah dibuat, lalu catat **URL** pada bagian **AMQP details**.

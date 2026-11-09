@@ -1,0 +1,24 @@
+[Producer] kirim ke demo.topic routing_key='job.data': pesan A
+[Producer] kirim ke demo.topic routing_key='job.report': pesan B
+
+
+[2026-11-09 22:59:48,864: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 22:59:49,435: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 22:59:52,271: INFO/MainProcess] mingle: all alone
+[2026-11-09 22:59:54,188: INFO/MainProcess] topic-data@SEVIMA-249 ready.
+[2026-11-09 22:59:56,299: INFO/MainProcess] sync with topic-report@SEVIMA-249
+[2026-11-09 23:00:22,048: INFO/MainProcess] Task tasks.process_data[f950fb64-e29f-4fad-8dbe-10bc85553888] received
+[2026-11-09 23:00:22,048: WARNING/MainProcess] [topic-data@SEVIMA-249] routing_key='job.data' Processing data: pesan A
+[2026-11-09 23:00:24,049: WARNING/MainProcess] Data processing completed: {'original': 'pesan A', 'processed_at': 1794240024.0493546, 'word_count': 2, 'status': 'processed'}
+[2026-11-09 23:00:24,050: INFO/MainProcess] Task tasks.process_data[f950fb64-e29f-4fad-8dbe-10bc85553888] succeeded in 2.0s: {'original': 'pesan A', 'processed_at': 1794240024.0493546, 'word_count': 2, 'status': 'processed'}
+
+
+[2026-11-09 22:59:54,148: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 22:59:54,927: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 22:59:57,747: INFO/MainProcess] mingle: sync with 1 nodes
+[2026-11-09 22:59:57,747: INFO/MainProcess] mingle: sync complete
+[2026-11-09 22:59:59,455: INFO/MainProcess] topic-report@SEVIMA-249 ready.
+[2026-11-09 23:00:22,173: INFO/MainProcess] Task tasks.process_data[b757cd74-779c-4d52-8fd4-fe4869603f4c] received
+[2026-11-09 23:00:22,174: WARNING/MainProcess] [topic-report@SEVIMA-249] routing_key='job.report' Processing data: pesan B
+[2026-11-09 23:00:24,175: WARNING/MainProcess] Data processing completed: {'original': 'pesan B', 'processed_at': 1794240024.175218, 'word_count': 2, 'status': 'processed'}
+[2026-11-09 23:00:24,175: INFO/MainProcess] Task tasks.process_data[b757cd74-779c-4d52-8fd4-fe4869603f4c] succeeded in 2.0s: {'original': 'pesan B', 'processed_at': 1794240024.175218, 'word_count': 2, 'status': 'processed'}

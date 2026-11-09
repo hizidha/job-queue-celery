@@ -1,0 +1,34 @@
+[Producer] kirim ke demo.topic routing_key='job.data': pesan C
+[Producer] kirim ke demo.topic routing_key='job.data.urgent': pesan D
+[Producer] kirim ke demo.topic routing_key='job': pesan E
+[Producer] kirim ke demo.topic routing_key='lain.data': pesan F
+
+
+[2026-11-09 23:01:53,934: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 23:01:54,502: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 23:01:57,320: INFO/MainProcess] mingle: all alone
+[2026-11-09 23:01:59,255: INFO/MainProcess] bintang@SEVIMA-249 ready.
+[2026-11-09 23:02:01,617: INFO/MainProcess] sync with pagar@SEVIMA-249
+[2026-11-09 23:02:04,644: INFO/MainProcess] Task tasks.process_data[d0c15470-0fd6-4366-aad1-f5eba52f6c66] received
+[2026-11-09 23:02:04,644: WARNING/MainProcess] [bintang@SEVIMA-249] routing_key='job.data' Processing data: pesan C
+[2026-11-09 23:02:06,645: WARNING/MainProcess] Data processing completed: {'original': 'pesan C', 'processed_at': 1794240126.6454008, 'word_count': 2, 'status': 'processed'}
+[2026-11-09 23:02:06,646: INFO/MainProcess] Task tasks.process_data[d0c15470-0fd6-4366-aad1-f5eba52f6c66] succeeded in 2.0s: {'original': 'pesan C', 'processed_at': 1794240126.6454008, 'word_count': 2, 'status': 'processed'}
+
+
+[2026-11-09 23:01:59,632: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 23:02:00,230: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 23:02:03,123: INFO/MainProcess] mingle: sync with 1 nodes
+[2026-11-09 23:02:03,123: INFO/MainProcess] mingle: sync complete
+[2026-11-09 23:02:05,034: INFO/MainProcess] pagar@SEVIMA-249 ready.
+[2026-11-09 23:02:05,034: INFO/MainProcess] Task tasks.process_data[d0c15470-0fd6-4366-aad1-f5eba52f6c66] received
+[2026-11-09 23:02:05,035: WARNING/MainProcess] [pagar@SEVIMA-249] routing_key='job.data' Processing data: pesan C
+[2026-11-09 23:02:07,036: WARNING/MainProcess] Data processing completed: {'original': 'pesan C', 'processed_at': 1794240127.0368266, 'word_count': 2, 'status': 'processed'}
+[2026-11-09 23:02:07,038: INFO/MainProcess] Task tasks.process_data[d0c15470-0fd6-4366-aad1-f5eba52f6c66] succeeded in 2.0s: {'original': 'pesan C', 'processed_at': 1794240127.0368266, 'word_count': 2, 'status': 'processed'}
+[2026-11-09 23:02:07,039: INFO/MainProcess] Task tasks.process_data[cbf1cf60-5fc8-496d-bc84-fe3bb1721996] received
+[2026-11-09 23:02:07,041: WARNING/MainProcess] [pagar@SEVIMA-249] routing_key='job.data.urgent' Processing data: pesan D
+[2026-11-09 23:02:09,042: WARNING/MainProcess] Data processing completed: {'original': 'pesan D', 'processed_at': 1794240129.0422554, 'word_count': 2, 'status': 'processed'}
+[2026-11-09 23:02:09,043: INFO/MainProcess] Task tasks.process_data[cbf1cf60-5fc8-496d-bc84-fe3bb1721996] succeeded in 2.0159999999996217s: {'original': 'pesan D', 'processed_at': 1794240129.0422554, 'word_count': 2, 'status': 'processed'}
+[2026-11-09 23:02:09,044: INFO/MainProcess] Task tasks.process_data[5565c518-e66a-4b50-b58a-adbdfe19bb04] received
+[2026-11-09 23:02:09,044: WARNING/MainProcess] [pagar@SEVIMA-249] routing_key='job' Processing data: pesan E
+[2026-11-09 23:02:11,045: WARNING/MainProcess] Data processing completed: {'original': 'pesan E', 'processed_at': 1794240131.045774, 'word_count': 2, 'status': 'processed'}
+[2026-11-09 23:02:11,045: INFO/MainProcess] Task tasks.process_data[5565c518-e66a-4b50-b58a-adbdfe19bb04] succeeded in 2.0s: {'original': 'pesan E', 'processed_at': 1794240131.045774, 'word_count': 2, 'status': 'processed'}

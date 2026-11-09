@@ -1,0 +1,36 @@
+[Producer] kirim ke demo.fanout routing_key='apa.saja': pengumuman untuk semua worker
+
+
+[2026-11-09 22:52:37,376: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 22:52:37,965: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 22:52:40,788: INFO/MainProcess] mingle: all alone
+[2026-11-09 22:52:42,703: INFO/MainProcess] fan1@SEVIMA-249 ready.
+[2026-11-09 22:53:09,207: INFO/MainProcess] sync with fan2@SEVIMA-249
+[2026-11-09 22:53:26,617: INFO/MainProcess] sync with fan3@SEVIMA-249
+[2026-11-09 22:53:30,200: INFO/MainProcess] Task tasks.process_data[db4792dd-1a15-403d-8a03-edbb7bf11dd0] received
+[2026-11-09 22:53:30,201: WARNING/MainProcess] [fan1@SEVIMA-249] routing_key='apa.saja' Processing data: pengumuman untuk semua worker
+[2026-11-09 22:53:32,202: WARNING/MainProcess] Data processing completed: {'original': 'pengumuman untuk semua worker', 'processed_at': 1794239612.202183, 'word_count': 4, 'status': 'processed'}
+[2026-11-09 22:53:32,203: INFO/MainProcess] Task tasks.process_data[db4792dd-1a15-403d-8a03-edbb7bf11dd0] succeeded in 2.0s: {'original': 'pengumuman untuk semua worker', 'processed_at': 1794239612.202183, 'word_count': 4, 'status': 'processed'}
+
+
+[2026-11-09 22:53:07,057: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 22:53:07,837: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 22:53:10,651: INFO/MainProcess] mingle: sync with 1 nodes
+[2026-11-09 22:53:10,651: INFO/MainProcess] mingle: sync complete
+[2026-11-09 22:53:12,306: INFO/MainProcess] fan2@SEVIMA-249 ready.
+[2026-11-09 22:53:26,617: INFO/MainProcess] sync with fan3@SEVIMA-249
+[2026-11-09 22:53:30,200: INFO/MainProcess] Task tasks.process_data[db4792dd-1a15-403d-8a03-edbb7bf11dd0] received
+[2026-11-09 22:53:30,201: WARNING/MainProcess] [fan2@SEVIMA-249] routing_key='apa.saja' Processing data: pengumuman untuk semua worker
+[2026-11-09 22:53:32,202: WARNING/MainProcess] Data processing completed: {'original': 'pengumuman untuk semua worker', 'processed_at': 1794239612.202183, 'word_count': 4, 'status': 'processed'}
+[2026-11-09 22:53:32,202: INFO/MainProcess] Task tasks.process_data[db4792dd-1a15-403d-8a03-edbb7bf11dd0] succeeded in 2.0s: {'original': 'pengumuman untuk semua worker', 'processed_at': 1794239612.202183, 'word_count': 4, 'status': 'processed'}
+
+
+[2026-11-09 22:53:24,583: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 22:53:25,156: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 22:53:28,081: INFO/MainProcess] mingle: sync with 2 nodes
+[2026-11-09 22:53:28,082: INFO/MainProcess] mingle: sync complete
+[2026-11-09 22:53:29,981: INFO/MainProcess] fan3@SEVIMA-249 ready.
+[2026-11-09 22:53:30,200: INFO/MainProcess] Task tasks.process_data[db4792dd-1a15-403d-8a03-edbb7bf11dd0] received
+[2026-11-09 22:53:30,201: WARNING/MainProcess] [fan3@SEVIMA-249] routing_key='apa.saja' Processing data: pengumuman untuk semua worker
+[2026-11-09 22:53:32,202: WARNING/MainProcess] Data processing completed: {'original': 'pengumuman untuk semua worker', 'processed_at': 1794239612.202183, 'word_count': 4, 'status': 'processed'}
+[2026-11-09 22:53:32,202: INFO/MainProcess] Task tasks.process_data[db4792dd-1a15-403d-8a03-edbb7bf11dd0] succeeded in 2.0s: {'original': 'pengumuman untuk semua worker', 'processed_at': 1794239612.202183, 'word_count': 4, 'status': 'processed'}

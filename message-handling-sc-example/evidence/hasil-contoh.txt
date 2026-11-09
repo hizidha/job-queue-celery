@@ -1,0 +1,65 @@
+=== Cara 1: Dengan orchestrator task ===
+Final result: {
+  "report_id": "RPT_1794239878",
+  "data_summary": {
+    "original_data": "Ini adalah data contoh yang harus diproses dan dilaporkan.",
+    "word_count": 9,
+    "processed_at": 1794239874.8428643
+  },
+  "generated_at": 1794239878.4202719,
+  "status": "completed"
+}
+
+=== Cara 2: Dengan chain milik Celery ===
+Chain result: {
+  "report_id": "RPT_1794239884",
+  "data_summary": {
+    "original_data": "Ini adalah data contoh yang harus diproses dan dilaporkan.",
+    "word_count": 9,
+    "processed_at": 1794239881.2473507
+  },
+  "generated_at": 1794239884.696124,
+  "status": "completed"
+}
+
+
+[2026-11-09 22:55:53,289: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 22:55:53,853: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 22:55:56,683: INFO/MainProcess] mingle: all alone
+[2026-11-09 22:55:58,650: INFO/MainProcess] data@SEVIMA-249 ready.
+[2026-11-09 22:56:02,104: INFO/MainProcess] sync with report@SEVIMA-249
+[2026-11-09 22:56:07,513: INFO/MainProcess] sync with general@SEVIMA-249
+[2026-11-09 22:57:52,841: INFO/MainProcess] Task tasks.process_data[12606d1b-c4f6-4092-a679-9d5093766afa] received
+[2026-11-09 22:57:52,842: WARNING/MainProcess] [data@SEVIMA-249] routing_key='data_processing' Processing data: Ini adalah data contoh yang harus diproses dan dilaporkan.
+[2026-11-09 22:57:54,842: WARNING/MainProcess] Data processing completed: {'original': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'processed_at': 1794239874.8428643, 'word_count': 9, 'status': 'processed'}
+[2026-11-09 22:57:54,844: INFO/MainProcess] Task tasks.process_data[12606d1b-c4f6-4092-a679-9d5093766afa] succeeded in 2.0s: {'original': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'processed_at': 1794239874.8428643, 'word_count': 9, 'status': 'processed'}
+[2026-11-09 22:57:59,245: INFO/MainProcess] Task tasks.process_data[fd2037b5-ff82-422c-875f-3e71699013be] received
+[2026-11-09 22:57:59,246: WARNING/MainProcess] [data@SEVIMA-249] routing_key='data_processing' Processing data: Ini adalah data contoh yang harus diproses dan dilaporkan.
+[2026-11-09 22:58:01,247: WARNING/MainProcess] Data processing completed: {'original': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'processed_at': 1794239881.2473507, 'word_count': 9, 'status': 'processed'}
+[2026-11-09 22:58:01,581: INFO/MainProcess] Task tasks.process_data[fd2037b5-ff82-422c-875f-3e71699013be] succeeded in 2.3280000000013388s: {'original': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'processed_at': 1794239881.2473507, 'word_count': 9, 'status': 'processed'}
+
+
+[2026-11-09 22:55:59,935: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 22:56:00,758: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 22:56:03,586: INFO/MainProcess] mingle: sync with 1 nodes
+[2026-11-09 22:56:03,586: INFO/MainProcess] mingle: sync complete
+[2026-11-09 22:56:05,218: INFO/MainProcess] report@SEVIMA-249 ready.
+[2026-11-09 22:56:07,515: INFO/MainProcess] sync with general@SEVIMA-249
+[2026-11-09 22:57:55,418: INFO/MainProcess] Task tasks.generate_report[a6051a9f-5eca-473c-b9b8-02df0dbfea0e] received
+[2026-11-09 22:57:55,419: WARNING/MainProcess] Generating report from: {'original': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'processed_at': 1794239874.8428643, 'word_count': 9, 'status': 'processed'}
+[2026-11-09 22:57:58,420: WARNING/MainProcess] Report generation completed: {'report_id': 'RPT_1794239878', 'data_summary': {'original_data': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'word_count': 9, 'processed_at': 1794239874.8428643}, 'generated_at': 1794239878.4202719, 'status': 'completed'}
+[2026-11-09 22:57:58,421: INFO/MainProcess] Task tasks.generate_report[a6051a9f-5eca-473c-b9b8-02df0dbfea0e] succeeded in 3.0s: {'report_id': 'RPT_1794239878', 'data_summary': {'original_data': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'word_count': 9, 'processed_at': 1794239874.8428643}, 'generated_at': 1794239878.4202719, 'status': 'completed'}
+[2026-11-09 22:58:01,694: INFO/MainProcess] Task tasks.generate_report[4a76970b-a76b-499e-8ca6-099b3ae9d32c] received
+[2026-11-09 22:58:01,694: WARNING/MainProcess] Generating report from: {'original': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'processed_at': 1794239881.2473507, 'word_count': 9, 'status': 'processed'}
+[2026-11-09 22:58:04,696: WARNING/MainProcess] Report generation completed: {'report_id': 'RPT_1794239884', 'data_summary': {'original_data': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'word_count': 9, 'processed_at': 1794239881.2473507}, 'generated_at': 1794239884.696124, 'status': 'completed'}
+[2026-11-09 22:58:04,697: INFO/MainProcess] Task tasks.generate_report[4a76970b-a76b-499e-8ca6-099b3ae9d32c] succeeded in 3.0s: {'report_id': 'RPT_1794239884', 'data_summary': {'original_data': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'word_count': 9, 'processed_at': 1794239881.2473507}, 'generated_at': 1794239884.696124, 'status': 'completed'}
+
+
+[2026-11-09 22:56:05,587: INFO/MainProcess] Connected to amqps://daeiqywa:**@dingo.rmq.cloudamqp.com:5671/daeiqywa
+[2026-11-09 22:56:06,169: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-09 22:56:08,955: INFO/MainProcess] mingle: sync with 2 nodes
+[2026-11-09 22:56:08,956: INFO/MainProcess] mingle: sync complete
+[2026-11-09 22:56:10,868: INFO/MainProcess] general@SEVIMA-249 ready.
+[2026-11-09 22:57:52,385: INFO/MainProcess] Task tasks.process_and_report[da70331a-a7ae-44ca-9f3b-f85f9e5013b8] received
+[2026-11-09 22:57:55,267: INFO/MainProcess] missed heartbeat from report@SEVIMA-249
+[2026-11-09 22:57:58,533: INFO/MainProcess] Task tasks.process_and_report[da70331a-a7ae-44ca-9f3b-f85f9e5013b8] succeeded in 6.14100000000326s: {'report_id': 'RPT_1794239878', 'data_summary': {'original_data': 'Ini adalah data contoh yang harus diproses dan dilaporkan.', 'word_count': 9, 'processed_at': 1794239874.8428643}, 'generated_at': 1794239878.4202719, 'status': 'completed'}

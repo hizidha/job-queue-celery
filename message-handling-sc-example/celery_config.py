@@ -39,7 +39,8 @@ app.conf.update(
         Queue('wild.bintang', topic, routing_key='job.*'),
         Queue('wild.pagar', topic, routing_key='job.#'),
     ],
-    broker_pool_limit=1,              # [MODIFIKASI] hemat koneksi (paket gratis CloudAMQP)
+    worker_send_task_events=True,     # [MODIFIKASI] worker melaporkan status task, agar terlihat di Flower
+    task_send_sent_event=True,        # [MODIFIKASI] task yang baru dikirim juga terlihat di Flower
     broker_connection_timeout=30,     # [MODIFIKASI] broker di internet lebih lambat dari localhost
     task_serializer='json',
     accept_content=['json'],

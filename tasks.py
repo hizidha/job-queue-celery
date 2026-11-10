@@ -21,4 +21,3 @@ def echo(self, teks):
     # Application ID 2 (SHORT): kembalikan teks dalam huruf besar.
     print(f"[{self.request.hostname}] SHORT '{teks}' -> '{teks.upper()}'")
     return {"worker": self.request.hostname, "hasil": teks.upper(), "selesai": time.time()}
-

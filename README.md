@@ -124,6 +124,8 @@ Kami mengirim 12 request yang sama ke tiga worker dengan kedua strategi:
 
 Log lengkapnya ada di `evidence/hasil-round-robin.txt` dan `evidence/hasil-least-connections.txt`.
 
+Selain lewat log, hasilnya juga kami pantau dengan **Flower**, yaitu dashboard web bawaan ekosistem Celery. Halaman *Workers* menampilkan berapa task yang dikerjakan setiap worker, sedangkan halaman *Tasks* menampilkan setiap task beserta statusnya, worker pengerjanya, dan lama pengerjaannya (*runtime*). Dengan Flower, perbedaan pembagian beban pada kedua strategi langsung terlihat tanpa perlu membaca log satu per satu.
+
 ---
 
 ## 3. Producer
@@ -329,16 +331,36 @@ python producer.py --jumlah 12 --seed 7
 
 Hasil yang diharapkan: producer menampilkan 12 hasil beserta nama worker dan detik selesainya, lalu `selesai 12 request dalam ... detik`. Gunakan `--seed 7` di kedua strategi agar request-nya sama dan perbandingannya adil.
 
-### H. Kendala yang Mungkin Muncul
+### H. Memantau dengan Flower
 
-| Gejala | Penyebab dan solusi |
-|---|---|
-| `WinError 10061 ... actively refused it` | URL CloudAMQP belum terbaca. Ulangi langkah C di terminal tersebut. |
-| Log berisi pesan dari percobaan sebelumnya | Queue belum dikosongkan. Jalankan `purge` sebelum menyalakan worker. |
-| Worker tidak menerima pesan apa pun | Producer dijalankan sebelum worker `ready`, atau perintah producer salah mode. |
-| Error koneksi saat banyak worker menyala | Paket gratis CloudAMQP membatasi jumlah koneksi. Hentikan worker dari percobaan sebelumnya. |
-| Label `WARNING/MainProcess` di log | Bukan error. Celery memang mencetak `print()` dari task pada level WARNING. |
-| Hasil waktu berbeda dengan README | Wajar, karena bergantung pada kecepatan laptop dan jaringan. Yang dibandingkan adalah polanya. |
+Flower sudah ikut terpasang dari `requirements.txt`. Jalankan di **terminal terpisah sebelum** percobaan dimulai, karena Flower hanya mencatat task yang terjadi selama ia menyala:
+
+```powershell
+# dari folder utama
+celery -A tasks flower
+
+# atau dari folder message-handling-sc-example
+celery -A celery_config flower
+```
+
+Flower berjalan di laptop sendiri, jadi alamatnya tetap `http://localhost:5555` walaupun broker-nya CloudAMQP. Flower tersambung ke CloudAMQP jika output-nya menampilkan baris `Broker: amqps://...cloudamqp.com...`.
+
+Buka `http://localhost:5555` di browser, lalu jalankan percobaan seperti biasa di terminal lain.
+- **Workers**: daftar worker, status online/offline, dan jumlah task yang sudah dikerjakan masing-masing.
+- **Tasks**: setiap task beserta status (`SUCCESS`/`FAILURE`), worker pengerjanya, dan *runtime*-nya.
+- **Broker**: daftar queue di RabbitMQ. Pada CloudAMQP, tab ini bisa kosong atau error karena membutuhkan akses API manajemen RabbitMQ yang terpisah. Tab Workers dan Tasks tetap berjalan normal.
+
+Untuk melihat exchange, queue, dan binding (berguna untuk Bagian 1), gunakan **RabbitMQ Manager** dari dashboard CloudAMQP: klik nama instance, lalu tombol **RabbitMQ Manager**.
+
+| | Flower | RabbitMQ Manager |
+|---|---|---|
+| Dibuka di | `http://localhost:5555` | Dashboard CloudAMQP |
+| Yang dilihat | Task dan worker Celery | Exchange, queue, dan jumlah pesan |
+| Cocok untuk | Bagian 2 dan 3 | Bagian 1 |
+
+Setelah `run.py` selesai, status worker di Flower berubah menjadi *Offline*. Ini wajar, karena `run.py` mematikan worker di akhir percobaan, tetapi data task-nya tetap tersimpan selama Flower masih menyala. Hentikan Flower dengan **Ctrl+C**.
+
+### I. Daftar File
 
 | File | Isi |
 |---|---|

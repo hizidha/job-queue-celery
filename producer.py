@@ -2,10 +2,6 @@
 # Pembangkit data masukan (input generator).
 # Membuat request LONG/SHORT secara acak, mengirimnya ke broker (RabbitMQ),
 # lalu menunggu dan mencetak hasil dari worker.
-#
-# Contoh menjalankan:
-#   python producer.py              (10 request acak)
-#   python producer.py --jumlah 20 --seed 1
 
 import argparse
 import random

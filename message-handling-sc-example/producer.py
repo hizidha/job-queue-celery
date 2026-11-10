@@ -49,27 +49,3 @@ if __name__ == "__main__":
 
     else:
         sys.exit("Pilihan: contoh, fanout, topic, wildcard")
-
-
-"""
-Untuk menjalankan worker pada queues yang berbeda, gunakan perintah-perintah berikut pada terminal terpisah:
-([MODIFIKASI] -P solo wajib di Windows; --queue diganti -Q karena tidak dikenali Celery versi baru)
-
-# Mode contoh
-celery -A celery_config worker --loglevel=info -P solo -Q data_processing -n data@%h
-celery -A celery_config worker --loglevel=info -P solo -Q report_generation -n report@%h
-celery -A celery_config worker --loglevel=info -P solo -Q celery -n general@%h
-
-# Mode fanout
-celery -A celery_config worker --loglevel=info -P solo -Q fan.w1 -n fan1@%h
-celery -A celery_config worker --loglevel=info -P solo -Q fan.w2 -n fan2@%h
-celery -A celery_config worker --loglevel=info -P solo -Q fan.w3 -n fan3@%h
-
-# Mode topic
-celery -A celery_config worker --loglevel=info -P solo -Q topic.data -n topic-data@%h
-celery -A celery_config worker --loglevel=info -P solo -Q topic.report -n topic-report@%h
-
-# Mode wildcard
-celery -A celery_config worker --loglevel=info -P solo -Q wild.bintang -n bintang@%h
-celery -A celery_config worker --loglevel=info -P solo -Q wild.pagar -n pagar@%h
-"""

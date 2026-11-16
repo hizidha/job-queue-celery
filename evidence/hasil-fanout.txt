@@ -1,0 +1,14 @@
+=== Percobaan: fanout ===
+[Demo] nyalakan gudang-surabaya membaca: fanout.gudang-surabaya
+[Demo] nyalakan gudang-jakarta  membaca: fanout.gudang-jakarta
+[Demo] nyalakan kurir-express   membaca: fanout.kurir-express
+[Demo] nyalakan audit           membaca: fanout.audit
+[Demo] semua worker siap
+
+[Producer] kirim pengumuman 'Flash sale diskon 10%' ke toko.fanout
+[gudang-surabaya] PENGUMUMAN 'Flash sale diskon 10%' -> harga baru: kaos Rp 67.500, topi Rp 45.000, sepatu Rp 315.000
+[kurir-express  ] PENGUMUMAN 'Flash sale diskon 10%' -> harga baru: kaos Rp 67.500, topi Rp 45.000, sepatu Rp 315.000
+[audit          ] PENGUMUMAN 'Flash sale diskon 10%' -> harga baru: kaos Rp 67.500, topi Rp 45.000, sepatu Rp 315.000
+[gudang-jakarta ] PENGUMUMAN 'Flash sale diskon 10%' -> harga baru: kaos Rp 67.500, topi Rp 45.000, sepatu Rp 315.000
+
+[Demo] semua worker dimatikan

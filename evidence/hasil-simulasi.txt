@@ -1,0 +1,55 @@
+=== Percobaan: simulasi ===
+[Demo] nyalakan gudang-surabaya membaca: wildcard.gudang-surabaya,fanout.gudang-surabaya
+[Demo] nyalakan gudang-jakarta  membaca: wildcard.gudang-jakarta,fanout.gudang-jakarta
+[Demo] nyalakan kurir-express   membaca: wildcard.kurir-express,fanout.kurir-express
+[Demo] nyalakan audit           membaca: wildcard.audit,fanout.audit
+[Demo] semua worker siap
+
+[Producer] kirim pesanan #1 ke toko.wildcard dengan routing key pesanan.jakarta.reguler
+[gudang-jakarta ] terima pesanan #1 (pesanan.jakarta.reguler): 1x sepatu, 3x kaos -> tagihan Rp 585.000
+[audit          ] terima pesanan #1 (pesanan.jakarta.reguler): 1x sepatu, 3x kaos -> tagihan Rp 585.000
+[Producer] kirim pesanan #2 ke toko.wildcard dengan routing key pesanan.surabaya.express
+[gudang-surabaya] terima pesanan #2 (pesanan.surabaya.express): 1x sepatu -> tagihan Rp 375.000
+[audit          ] terima pesanan #2 (pesanan.surabaya.express): 1x sepatu -> tagihan Rp 375.000
+[kurir-express  ] terima pesanan #2 (pesanan.surabaya.express): 1x sepatu -> tagihan Rp 375.000
+[Producer] kirim pesanan #3 ke toko.wildcard dengan routing key pesanan.surabaya.reguler
+[gudang-surabaya] terima pesanan #3 (pesanan.surabaya.reguler): 1x topi, 1x kaos -> tagihan Rp 135.000
+[audit          ] terima pesanan #3 (pesanan.surabaya.reguler): 1x topi, 1x kaos -> tagihan Rp 135.000
+[Producer] kirim pesanan #4 ke toko.wildcard dengan routing key pesanan.jakarta.reguler
+[gudang-jakarta ] terima pesanan #4 (pesanan.jakarta.reguler): 3x kaos -> tagihan Rp 235.000
+[audit          ] terima pesanan #4 (pesanan.jakarta.reguler): 3x kaos -> tagihan Rp 235.000
+[Producer] kirim pesanan #5 ke toko.wildcard dengan routing key pesanan.surabaya.express
+[gudang-surabaya] terima pesanan #5 (pesanan.surabaya.express): 1x kaos -> tagihan Rp 100.000
+[audit          ] terima pesanan #5 (pesanan.surabaya.express): 1x kaos -> tagihan Rp 100.000
+[kurir-express  ] terima pesanan #5 (pesanan.surabaya.express): 1x kaos -> tagihan Rp 100.000
+[Producer] kirim pesanan #6 ke toko.wildcard dengan routing key pesanan.surabaya.express
+[gudang-surabaya] terima pesanan #6 (pesanan.surabaya.express): 3x kaos, 2x sepatu -> tagihan Rp 950.000
+[audit          ] terima pesanan #6 (pesanan.surabaya.express): 3x kaos, 2x sepatu -> tagihan Rp 950.000
+[kurir-express  ] terima pesanan #6 (pesanan.surabaya.express): 3x kaos, 2x sepatu -> tagihan Rp 950.000
+[Producer] kirim pengumuman 'Flash sale diskon 10%' ke toko.fanout
+[gudang-jakarta ] PENGUMUMAN 'Flash sale diskon 10%' -> harga baru: kaos Rp 67.500, topi Rp 45.000, sepatu Rp 315.000
+[gudang-surabaya] PENGUMUMAN 'Flash sale diskon 10%' -> harga baru: kaos Rp 67.500, topi Rp 45.000, sepatu Rp 315.000
+[kurir-express  ] PENGUMUMAN 'Flash sale diskon 10%' -> harga baru: kaos Rp 67.500, topi Rp 45.000, sepatu Rp 315.000
+[audit          ] PENGUMUMAN 'Flash sale diskon 10%' -> harga baru: kaos Rp 67.500, topi Rp 45.000, sepatu Rp 315.000
+[Producer] kirim pesanan #7 ke toko.wildcard dengan routing key pesanan.surabaya.reguler
+[gudang-surabaya] terima pesanan #7 (pesanan.surabaya.reguler): 1x topi -> tagihan Rp 55.000
+[audit          ] terima pesanan #7 (pesanan.surabaya.reguler): 1x topi -> tagihan Rp 55.000
+[Producer] kirim pesanan #8 ke toko.wildcard dengan routing key pesanan.surabaya.reguler
+[gudang-surabaya] terima pesanan #8 (pesanan.surabaya.reguler): 3x topi -> tagihan Rp 145.000
+[audit          ] terima pesanan #8 (pesanan.surabaya.reguler): 3x topi -> tagihan Rp 145.000
+[Producer] kirim pesanan #9 ke toko.wildcard dengan routing key pesanan.jakarta.express
+[gudang-jakarta ] terima pesanan #9 (pesanan.jakarta.express): 2x sepatu, 2x topi -> tagihan Rp 745.000
+[audit          ] terima pesanan #9 (pesanan.jakarta.express): 2x sepatu, 2x topi -> tagihan Rp 745.000
+[kurir-express  ] terima pesanan #9 (pesanan.jakarta.express): 2x sepatu, 2x topi -> tagihan Rp 745.000
+[Producer] kirim pesanan #10 ke toko.wildcard dengan routing key pesanan.surabaya.reguler
+[gudang-surabaya] terima pesanan #10 (pesanan.surabaya.reguler): 3x kaos -> tagihan Rp 212.500
+[audit          ] terima pesanan #10 (pesanan.surabaya.reguler): 3x kaos -> tagihan Rp 212.500
+[Producer] kirim pesanan #11 ke toko.wildcard dengan routing key pesanan.jakarta.express
+[gudang-jakarta ] terima pesanan #11 (pesanan.jakarta.express): 2x sepatu, 3x topi -> tagihan Rp 790.000
+[audit          ] terima pesanan #11 (pesanan.jakarta.express): 2x sepatu, 3x topi -> tagihan Rp 790.000
+[kurir-express  ] terima pesanan #11 (pesanan.jakarta.express): 2x sepatu, 3x topi -> tagihan Rp 790.000
+[Producer] kirim pesanan #12 ke toko.wildcard dengan routing key pesanan.surabaya.reguler
+[gudang-surabaya] terima pesanan #12 (pesanan.surabaya.reguler): 1x kaos, 2x topi -> tagihan Rp 167.500
+[audit          ] terima pesanan #12 (pesanan.surabaya.reguler): 1x kaos, 2x topi -> tagihan Rp 167.500
+
+[Demo] semua worker dimatikan

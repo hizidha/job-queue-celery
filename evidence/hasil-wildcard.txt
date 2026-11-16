@@ -1,0 +1,25 @@
+=== Percobaan: wildcard ===
+[Demo] nyalakan gudang-surabaya membaca: wildcard.gudang-surabaya
+[Demo] nyalakan gudang-jakarta  membaca: wildcard.gudang-jakarta
+[Demo] nyalakan kurir-express   membaca: wildcard.kurir-express
+[Demo] nyalakan audit           membaca: wildcard.audit
+[Demo] semua worker siap
+
+[Producer] kirim pesanan #1 ke toko.wildcard dengan routing key pesanan.surabaya.reguler
+[audit          ] terima pesanan #1 (pesanan.surabaya.reguler): 2x kaos -> tagihan Rp 160.000
+[gudang-surabaya] terima pesanan #1 (pesanan.surabaya.reguler): 2x kaos -> tagihan Rp 160.000
+[Producer] kirim pesanan #2 ke toko.wildcard dengan routing key pesanan.jakarta.express
+[kurir-express  ] terima pesanan #2 (pesanan.jakarta.express): 1x sepatu -> tagihan Rp 375.000
+[audit          ] terima pesanan #2 (pesanan.jakarta.express): 1x sepatu -> tagihan Rp 375.000
+[gudang-jakarta ] terima pesanan #2 (pesanan.jakarta.express): 1x sepatu -> tagihan Rp 375.000
+[Producer] kirim pesanan #3 ke toko.wildcard dengan routing key pesanan.surabaya.express
+[kurir-express  ] terima pesanan #3 (pesanan.surabaya.express): 1x topi, 1x kaos -> tagihan Rp 150.000
+[audit          ] terima pesanan #3 (pesanan.surabaya.express): 1x topi, 1x kaos -> tagihan Rp 150.000
+[gudang-surabaya] terima pesanan #3 (pesanan.surabaya.express): 1x topi, 1x kaos -> tagihan Rp 150.000
+[Producer] kirim pesanan #4 ke toko.wildcard dengan routing key pesanan.bandung.express
+[audit          ] terima pesanan #4 (pesanan.bandung.express): 3x topi -> tagihan Rp 175.000
+[kurir-express  ] terima pesanan #4 (pesanan.bandung.express): 3x topi -> tagihan Rp 175.000
+[Producer] kirim pesanan #5 ke toko.wildcard dengan routing key pesanan.jakarta.reguler.cod
+[audit          ] terima pesanan #5 (pesanan.jakarta.reguler.cod): 1x kaos -> tagihan Rp 85.000
+
+[Demo] semua worker dimatikan

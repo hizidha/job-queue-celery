@@ -1,0 +1,22 @@
+=== Percobaan: topic ===
+[Demo] nyalakan gudang-surabaya membaca: topic.gudang-surabaya
+[Demo] nyalakan gudang-jakarta  membaca: topic.gudang-jakarta
+[Demo] nyalakan kurir-express   membaca: topic.kurir-express
+[Demo] nyalakan audit           membaca: topic.audit
+[Demo] semua worker siap
+
+[Producer] kirim pesanan #1 ke toko.topic dengan routing key pesanan.surabaya.reguler
+[gudang-surabaya] terima pesanan #1 (pesanan.surabaya.reguler): 2x kaos -> tagihan Rp 160.000
+[audit          ] terima pesanan #1 (pesanan.surabaya.reguler): 2x kaos -> tagihan Rp 160.000
+[Producer] kirim pesanan #2 ke toko.topic dengan routing key pesanan.jakarta.express
+[gudang-jakarta ] terima pesanan #2 (pesanan.jakarta.express): 1x sepatu -> tagihan Rp 375.000
+[audit          ] terima pesanan #2 (pesanan.jakarta.express): 1x sepatu -> tagihan Rp 375.000
+[kurir-express  ] terima pesanan #2 (pesanan.jakarta.express): 1x sepatu -> tagihan Rp 375.000
+[Producer] kirim pesanan #3 ke toko.topic dengan routing key pesanan.surabaya.express
+[kurir-express  ] terima pesanan #3 (pesanan.surabaya.express): 1x topi, 1x kaos -> tagihan Rp 150.000
+[audit          ] terima pesanan #3 (pesanan.surabaya.express): 1x topi, 1x kaos -> tagihan Rp 150.000
+[gudang-surabaya] terima pesanan #3 (pesanan.surabaya.express): 1x topi, 1x kaos -> tagihan Rp 150.000
+[Producer] kirim pesanan #4 ke toko.topic dengan routing key pesanan.bandung.express
+[Producer] kirim pesanan #5 ke toko.topic dengan routing key pesanan.jakarta.reguler.cod
+
+[Demo] semua worker dimatikan

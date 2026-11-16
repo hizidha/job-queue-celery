@@ -1,0 +1,32 @@
+Data yang direkam Flower (http://localhost:5555/api/tasks) selama keempat percobaan dijalankan.
+Catatan: Flower mencatat per ID task. Salinan dari fan-out/topic/wildcard ber-ID sama,
+sehingga satu baris di sini mewakili satu pesan yang dikirim producer.
+
+Jumlah pesan tercatat: 24
+Status: SUCCESS=22, PENDING=2
+PENDING = pesan terkirim tetapi tidak ada queue yang cocok, sehingga tidak pernah dikerjakan (Topic #4 dan #5).
+
+  tasks.ubah_harga      SUCCESS  exchange=toko.fanout    routing_key=-                            args=['Flash sale diskon 10%', 10]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.topic     routing_key=pesanan.surabaya.reguler     args=[{'no': 1, 'barang': {'kaos': 2}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.topic     routing_key=pesanan.jakarta.express      args=[{'no': 2, 'barang': {'sepatu': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.topic     routing_key=pesanan.surabaya.express     args=[{'no': 3, 'barang': {'topi': 1, 'kaos': 1}}]
+  tasks.proses_pesanan  PENDING  exchange=toko.topic     routing_key=pesanan.bandung.express      args=[{'no': 4, 'barang': {'topi': 3}}]
+  tasks.proses_pesanan  PENDING  exchange=toko.topic     routing_key=pesanan.jakarta.reguler.cod  args=[{'no': 5, 'barang': {'kaos': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.reguler     args=[{'no': 1, 'barang': {'kaos': 2}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.jakarta.express      args=[{'no': 2, 'barang': {'sepatu': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.express     args=[{'no': 3, 'barang': {'topi': 1, 'kaos': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.bandung.express      args=[{'no': 4, 'barang': {'topi': 3}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.jakarta.reguler.cod  args=[{'no': 5, 'barang': {'kaos': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.jakarta.reguler      args=[{'no': 1, 'barang': {'sepatu': 1, 'kaos': 3}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.express     args=[{'no': 2, 'barang': {'sepatu': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.reguler     args=[{'no': 3, 'barang': {'topi': 1, 'kaos': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.jakarta.reguler      args=[{'no': 4, 'barang': {'kaos': 3}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.express     args=[{'no': 5, 'barang': {'kaos': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.express     args=[{'no': 6, 'barang': {'kaos': 3, 'sepatu': 2}}]
+  tasks.ubah_harga      SUCCESS  exchange=toko.fanout    routing_key=-                            args=['Flash sale diskon 10%', 10]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.reguler     args=[{'no': 7, 'barang': {'topi': 1}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.reguler     args=[{'no': 8, 'barang': {'topi': 3}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.jakarta.express      args=[{'no': 9, 'barang': {'sepatu': 2, 'topi': 2}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.reguler     args=[{'no': 10, 'barang': {'kaos': 3}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.jakarta.express      args=[{'no': 11, 'barang': {'sepatu': 2, 'topi': 3}}]
+  tasks.proses_pesanan  SUCCESS  exchange=toko.wildcard  routing_key=pesanan.surabaya.reguler     args=[{'no': 12, 'barang': {'kaos': 1, 'topi': 2}}]
